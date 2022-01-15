@@ -1,4 +1,4 @@
-import { HttpMethod, HttpMethodResponse, httpPost } from '../../http';
+import { HttpMethod, HttpMethodResponse, httpPost } from '../../../http';
 import { getFullApiUrl } from '../urls.api';
 import { API_ENDPOINTS } from '../endpoints.api';
 

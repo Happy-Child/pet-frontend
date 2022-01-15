@@ -21,7 +21,7 @@ export const SERVER_ERRORS: Record<string, string> = {
   DISTRICT_ID_IS_REQUIRED: 'ID района обязателен',
   CLIENT_ID_IS_REQUIRED: 'ID клиента обязателен',
   STATION_ID_IS_REQUIRED: 'ID станции обязателен',
-  MEMBER_IS_NOT_FULL: 'Сотрудник не полноценный для роли',
+  MEMBER_IS_NOT_FULL: 'Роль сотрудника неполноценна',
   BID_TODO_DESC_SHOULD_BE_UNIQUE: 'Должно быть уникальным',
   BID_NOT_FOUND: 'Заявка не найдена',
   BID_HAS_THIS_STATUS: 'Завка уже имеет такой статус',

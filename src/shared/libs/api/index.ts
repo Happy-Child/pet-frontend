@@ -1,1 +1,1 @@
-export * from './auth';
+export { internalApi } from './internal';
