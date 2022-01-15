@@ -1,4 +1,5 @@
 import React from 'react';
-import { AppRoutes } from './AppRoutes';
+import { Routes } from './Routes';
+import './global-styles.css';
 
-export const App: React.FC = () => <AppRoutes />;
+export const App: React.FC = () => <Routes />;

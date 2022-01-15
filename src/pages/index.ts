@@ -1,2 +1,2 @@
-export * from './cabinet';
+export * from './member';
 export * from './guest';

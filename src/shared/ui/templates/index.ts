@@ -1,2 +1,2 @@
 export { GuestTemplate } from './guest';
-export { CabinetTemplate } from './cabinet';
+export { MemberTemplate } from './member';
