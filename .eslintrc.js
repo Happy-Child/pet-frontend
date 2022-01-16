@@ -45,6 +45,7 @@ module.exports = {
     "indent": "off",
     "@typescript-eslint/indent": ["error", 2],
 		"react/prop-types": "off",
+		"react/require-default-props": "off",
 		"no-use-before-define": "off",
 		"@typescript-eslint/no-use-before-define": ["error"],
 		"import/extensions": "off",
