@@ -1,1 +1,1 @@
-export { internalApi } from './internal';
+export * from './internal';

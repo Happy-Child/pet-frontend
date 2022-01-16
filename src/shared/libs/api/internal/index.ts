@@ -1,5 +1,2 @@
-import * as auth from './auth';
-
-export const internalApi = {
-  auth,
-};
+export { callSignInApi } from './auth';
+export type { SignInRequest, SignInResponse } from './auth';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MemberTemplate } from '@/shared/ui/templates';
+import { MemberTemplate } from '@/shared/ui';
 
 export const DashboardPage: React.FC = () => (
   <MemberTemplate>

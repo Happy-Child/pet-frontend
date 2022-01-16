@@ -1,5 +1,5 @@
 import React from 'react';
-import { GuestTemplate } from '@/shared/ui/templates';
+import { GuestTemplate } from '@/shared/ui';
 import { Grid } from '@mui/material';
 import * as AuthByEmail from '@/features/auth/auth-by-email';
 
