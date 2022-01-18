@@ -13,6 +13,9 @@ export const AppInput: React.FC<AppInputProps> = ({
   type = APP_INPUT_DEFAULT_PROPS.type,
   fullWidth = APP_INPUT_DEFAULT_PROPS.fullWidth,
   variant = APP_INPUT_DEFAULT_PROPS.variant,
+  required = APP_INPUT_DEFAULT_PROPS.required,
+  disabled = APP_INPUT_DEFAULT_PROPS.disabled,
+  errorText = undefined,
 }) => {
   const isNumber = type === INPUT_TYPES.NUMBER;
 
@@ -35,6 +38,10 @@ export const AppInput: React.FC<AppInputProps> = ({
           fullWidth={fullWidth}
           label={label}
           variant={variant}
+          required={required}
+          disabled={disabled}
+          error={Boolean(errorText)}
+          helperText={errorText}
         />
       )}
     />

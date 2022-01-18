@@ -1,0 +1,1 @@
+export { useFormErrorsAdapter } from './hooks';
