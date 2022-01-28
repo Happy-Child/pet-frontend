@@ -10,8 +10,8 @@ export type HttpDoneResponse<T> = {
 }
 
 export type HttpFailResponse = {
-  readonly statusCode: number | null;
-  readonly errors: GeneralError[] | null;
+  readonly statusCode: number;
+  readonly errors: GeneralError[];
 };
 
 export type HttpMethodResponse<D> = Either<HttpFailResponse, HttpDoneResponse<D>>;

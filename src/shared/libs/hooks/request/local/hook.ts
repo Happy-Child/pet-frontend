@@ -2,15 +2,15 @@ import React from 'react';
 import * as RequestBase from '../base';
 import { State } from '../types';
 
-export type Params<R, D> = Omit<RequestBase.Params<R, D>, 'setResponse' | 'setIsPending' | 'setIsFinally'>
-export interface Return<R, D> extends State<D> {
-  readonly sendRequest: RequestBase.Return<R, D>,
+export type Params<P, D> = Omit<RequestBase.Params<P, D>, 'setResponse' | 'setIsPending' | 'setIsFinally'>
+export interface Return<P, D> extends State<D> {
+  readonly sendRequest: RequestBase.Return<P, D>,
 }
 
-export const useRequest = <R, D>(params: Params<R, D>): Return<R, D> => {
-  const [isPending, setIsPending] = React.useState<Return<R, D>['isPending']>(false);
-  const [isFinally, setIsFinally] = React.useState<Return<R, D>['isFinally']>(false);
-  const [response, setResponse] = React.useState<Return<R, D>['response']>(undefined);
+export const useRequest = <P, D>(params: Params<P, D>): Return<P, D> => {
+  const [isPending, setIsPending] = React.useState<Return<P, D>['isPending']>(false);
+  const [isFinally, setIsFinally] = React.useState<Return<P, D>['isFinally']>(false);
+  const [response, setResponse] = React.useState<Return<P, D>['response']>(undefined);
 
   const sendRequest = RequestBase.useRequest({
     request: params.request,

@@ -58,8 +58,9 @@ module.exports = {
 		"react/jsx-filename-extension": "off",
 		"max-len": ["error", { "code": 120 }],
 		"@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
     "import/prefer-default-export": "off",
-    "@typescript-eslint/no-namespace": "off"
+    "@typescript-eslint/no-namespace": "off",
+    "no-void": "off"
   }
 };

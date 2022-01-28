@@ -1,9 +1,18 @@
-export const GENERAL_ERRORS: Record<string, string> = {
-  ID_SHOULD_BE_UNIQUES: 'ID должен быть уникальным',
-  REQUIRED_FIELD: 'Обязательное поле',
+export const GENERAL_ERRORS_KEYS = {
+  UNKNOWN: 'UNKNOWN',
+  ID_SHOULD_BE_UNIQUES: 'ID_SHOULD_BE_UNIQUES',
+  REQUIRED_FIELD: 'REQUIRED_FIELD',
 };
 
-export const SERVER_ERRORS: Record<string, string> = {
+export const GENERAL_ERRORS_VALUES = {
+  [GENERAL_ERRORS_KEYS.UNKNOWN]: 'Неизвестная ошибка',
+  [GENERAL_ERRORS_KEYS.ID_SHOULD_BE_UNIQUES]: 'ID должен быть уникальным',
+  [GENERAL_ERRORS_KEYS.REQUIRED_FIELD]: 'Обязательное поле',
+};
+
+export const REQUIRED_FIELD_ERROR = GENERAL_ERRORS_VALUES[GENERAL_ERRORS_KEYS.REQUIRED_FIELD];
+
+export const SERVER_ERRORS_VALUES = {
   UNAUTHORIZED: 'Неавторизирован',
   CONFIRMATION_PASSWORD_NOT_MATCH: 'Пароль не совпадает',
   EMAIL_IS_EXIST: 'Email уже существует',

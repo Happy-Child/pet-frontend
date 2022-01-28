@@ -1,22 +1,22 @@
 import { isUndefined } from 'lodash';
 import { HttpDoneResponse, HttpFailResponse, HttpMethodResponse } from '@/shared/libs/http';
 
-export type HandleRootRequest<R, D> = (data?: R) => Promise<HttpMethodResponse<D>>;
+export type HandleRootRequest<P, D> = (data?: P) => Promise<HttpMethodResponse<D>>;
 
-export interface Params<R, D> {
-  readonly request: HandleRootRequest<R, D>,
+export interface Params<P, D> {
+  readonly request: HandleRootRequest<P, D>,
   readonly setResponse: (res: HttpMethodResponse<D> | undefined) => void,
   readonly setIsPending: (val: boolean) => void,
   readonly setIsFinally: (val: boolean) => void,
   readonly onDone?: (done: HttpDoneResponse<D>) => void,
   readonly onFail?: (fail: HttpFailResponse) => void,
-  readonly onPending?: (req: R | undefined) => void,
+  readonly onPending?: (params: P | undefined) => void,
   readonly onFinally?: (res: HttpMethodResponse<D>) => void,
 }
 
-export type Return<R, D> = HandleRootRequest<R, D>;
+export type Return<P, D> = HandleRootRequest<P, D>;
 
-export const useRequest = <R, D>({
+export const useRequest = <P, D>({
   request,
   setResponse,
   setIsPending,
@@ -25,14 +25,14 @@ export const useRequest = <R, D>({
   onFail,
   onPending,
   onFinally,
-}: Params<R, D>): Return<R, D> => (
-  (async (req) => {
+}: Params<P, D>): Return<P, D> => (
+  (async (params) => {
     setIsFinally(false);
 
     setIsPending(true);
-    if (!isUndefined(onPending)) onPending(req);
+    if (!isUndefined(onPending)) onPending(params);
 
-    const res = await request(req);
+    const res = await request(params);
     setIsPending(false);
 
     const shouldCallDone = res.isRight() && !isUndefined(onDone);
@@ -47,5 +47,5 @@ export const useRequest = <R, D>({
     if (!isUndefined(onFinally)) onFinally(res);
 
     return res;
-  }) as HandleRootRequest<R, D>
+  }) as HandleRootRequest<P, D>
 );

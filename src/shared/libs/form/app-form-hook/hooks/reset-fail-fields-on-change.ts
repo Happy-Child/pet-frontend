@@ -3,7 +3,7 @@ import {
   UseFormWatch, UseFormClearErrors, FieldErrors, FieldPath,
 } from 'react-hook-form';
 import { useWatchFormByFlag } from './watch-form-by-flag';
-import { DefaultFormValues } from '../types';
+import { DefaultFormValues } from '../../types';
 
 interface UseResetFailFieldsOnChangeParams<T extends DefaultFormValues> {
   errors: FieldErrors<T>

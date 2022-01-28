@@ -3,7 +3,7 @@ import { Controller } from 'react-hook-form';
 import { TextField } from '@mui/material';
 import { INPUT_TYPES } from '@/shared/libs/form';
 import { APP_INPUT_DEFAULT_PROPS } from './constants';
-import { getEventWithReplacedValue } from './helpers';
+import { getEventWithReplacedValue } from './libs';
 import { AppInputProps, AppInputChangeEvent } from './types';
 
 export const AppInput: React.FC<AppInputProps> = ({

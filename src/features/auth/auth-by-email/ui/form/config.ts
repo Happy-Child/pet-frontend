@@ -1,6 +1,6 @@
+import * as ValidationRules from '@/shared/libs/validation-rules';
 import { FORM_FIELDS } from '@/shared/libs/form';
 import * as yup from 'yup';
-import { emailRule, passwordRule } from '@/shared/libs/validation';
 
 const DEFAULT_FORM_VALUES = {
   [FORM_FIELDS.EMAIL]: '',
@@ -8,8 +8,8 @@ const DEFAULT_FORM_VALUES = {
 };
 
 const FORM_SCHEMA = yup.object({
-  email: emailRule(),
-  password: passwordRule(),
+  email: ValidationRules.emailRule(),
+  password: ValidationRules.passwordRule(),
 });
 
 export const FORM_PARAMS = {

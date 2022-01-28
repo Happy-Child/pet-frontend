@@ -8,6 +8,7 @@ import {
   FORM_FIELDS, FORM_LABELS, INPUT_TYPES, useAppForm,
 } from '@/shared/libs/form';
 import { internal as InternalApi } from '@/shared/libs/api';
+import { meModel } from '@/entities/user';
 import { FORM_PARAMS } from './config';
 import styles from './styles';
 
@@ -27,6 +28,11 @@ export const Form: React.FC<Props> = React.memo(({ title = 'Авторизаци
     errors,
     canBeSubmit,
   } = useAppForm<SignInForm>(FORM_PARAMS);
+
+  const data = meModel.useResponse();
+  const isAuthenticated = meModel.useIsAuthenticated();
+  console.log('data', data);
+  console.log('isAuthenticated', isAuthenticated);
 
   const onSubmit = async (): Promise<void> => {
     await fakeReq();

@@ -8,9 +8,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Validation from '@/shared/libs/validation';
 import { GET_DEFAULT_FORM_SETTINGS } from '../config';
 import { DefaultFormValues } from '../types';
-import { useResetFailFieldsOnChange } from './reset-fail-fields-on-change';
-import { useCanBeSubmitForm } from './can-be-submit-form';
-import { useErrorsAdapter } from './errors-adapter';
+import { useResetFailFieldsOnChange } from './hooks/reset-fail-fields-on-change';
+import { useCanBeSubmitForm } from './hooks/can-be-submit-form';
+import { useErrorsAdapter } from './hooks/errors-adapter';
 
 const handleSubmitPlaceholder = (e: React.BaseSyntheticEvent): void => {
   e.preventDefault();
