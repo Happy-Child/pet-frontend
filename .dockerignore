@@ -2,5 +2,6 @@
 docker-compose*
 node_modules
 dist
+build
 .idea
 .eslintcache

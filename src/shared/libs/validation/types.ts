@@ -1,3 +1,3 @@
 import { AnyObjectSchema } from 'yup';
 
-export type ValidationObjectSchema = AnyObjectSchema;
+export type ObjectSchema = AnyObjectSchema;

@@ -1,4 +1,6 @@
 export {
   httpGet, httpPatch, httpPost, httpPut, httpDelete,
-} from './methods.http';
-export type { HttpMethod, HttpMethodResponse } from './types.http';
+} from './methods';
+export type {
+  HttpReqDefault, HttpMethodResponse, HttpFailResponse, HttpDoneResponse,
+} from './types';

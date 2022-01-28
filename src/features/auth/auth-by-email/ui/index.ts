@@ -1,1 +1,1 @@
-export { Form } from './molecules/form';
+export { Form } from './form';

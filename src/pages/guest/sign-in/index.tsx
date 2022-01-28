@@ -6,7 +6,9 @@ import * as AuthByEmail from '@/features/auth/auth-by-email';
 export const SignInPage: React.FC = () => (
   <GuestTemplate>
     <Grid container item xs={3} alignContent="center">
-      <AuthByEmail.UI.Form />
+      <React.Suspense fallback={<h1>Loading</h1>}>
+        <AuthByEmail.UI.Form />
+      </React.Suspense>
     </Grid>
   </GuestTemplate>
 );
