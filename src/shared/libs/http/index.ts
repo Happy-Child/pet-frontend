@@ -1,6 +1,8 @@
-export {
-  httpGet, httpPatch, httpPost, httpPut, httpDelete,
-} from './methods';
+import * as methods from './core/methods';
+import * as hook from './hook';
+
+export { methods, hook };
+
 export type {
-  HttpReqDefault, HttpMethodResponse, HttpFailResponse, HttpDoneResponse,
-} from './types';
+  ReqParamsDefault, Response, FailResponse, DoneResponse, ErrorDefault,
+} from './core/types';

@@ -1,17 +1,23 @@
-import { RequestGlobalHook } from '@/shared/libs/hooks';
-import { internal as InternalApi } from '@/shared/libs/api';
+import { Internal } from '@/shared/libs/api';
+import * as Http from '@/shared/libs/http';
 import { isUndefined } from 'lodash';
 
-const requestState = RequestGlobalHook.stateFactory<InternalApi.User>();
+const {
+  useRequestHandler,
+  useIsFinally,
+  useResponse,
+  useIsPending,
+} = Http.hook.create<Internal.User>();
 
-export const useRequest = (): RequestGlobalHook.Return<undefined, InternalApi.User> => (
-  RequestGlobalHook.useRequest({
-    state: requestState,
-    request: InternalApi.me.callRequest,
-  })
-);
+export { useIsFinally, useResponse, useIsPending };
 
-export const { useIsPending, useIsFinally, useResponse } = RequestGlobalHook.selectorsFactory(requestState);
+export const useRequest = (): Http.hook.Return<Internal.User> => {
+  const handleRequest = useRequestHandler({
+    request: Internal.me.send,
+  });
+
+  return handleRequest;
+};
 
 export const useIsAuthenticated = (): boolean | null => {
   const response = useResponse();

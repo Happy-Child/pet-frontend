@@ -1,5 +1,5 @@
 import {
-  httpPost, HttpMethodResponse,
+  methods, Response,
 } from '@/shared/libs/http';
 import { User } from '../types';
 import { API_FULL_URL } from '../config';
@@ -11,4 +11,4 @@ export type Params = {
 
 export const callRequest = (
   body: Params,
-): Promise<HttpMethodResponse<User>> => httpPost<Params, User>(API_FULL_URL.SIGN_IN, body);
+): Promise<Response<User>> => methods.post<Params, User>(API_FULL_URL.SIGN_IN, body);

@@ -5,7 +5,7 @@ import {
   SubmitHandler,
 } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as Validation from '@/shared/libs/validation';
+import { ObjectSchema } from '@/shared/libs/validation';
 import { GET_DEFAULT_FORM_SETTINGS } from '../config';
 import { DefaultFormValues } from '../types';
 import { useResetFailFieldsOnChange } from './hooks/reset-fail-fields-on-change';
@@ -18,7 +18,7 @@ const handleSubmitPlaceholder = (e: React.BaseSyntheticEvent): void => {
 
 type BaseParams<T> = Pick<UseFormProps<T>, 'defaultValues'>;
 type Params<T extends DefaultFormValues> = BaseParams<T> & {
-  validationSchema?: Validation.ObjectSchema,
+  validationSchema?: ObjectSchema,
 };
 
 type BaseReturn<T> = Pick<UseFormReturn<T>, | 'control'>;
@@ -44,10 +44,9 @@ export const useAppForm = <T extends DefaultFormValues>(params: Params<T>): Retu
   });
 
   const canBeSubmit = useCanBeSubmitForm<T>({
-    errors: formState.errors,
-    dirtyFields: formState.dirtyFields,
+    formState,
     validationSchema: params.validationSchema,
-  }) && !formState.isSubmitting;
+  });
 
   const errors = useErrorsAdapter<T>(formState.errors);
 
