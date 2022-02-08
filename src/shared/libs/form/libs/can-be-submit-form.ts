@@ -1,8 +1,14 @@
-import { FormState } from 'react-hook-form';
+import { FieldNamesMarkedBoolean, FormState } from 'react-hook-form';
 import { isNull } from 'lodash';
 import * as Validation from '@/shared/libs/validation';
-import { isFieldDirty } from '../../libs';
-import { DefaultFormValues } from '../../types';
+import { DefaultFormValues } from '../types';
+
+const isFieldDirty = <T extends DefaultFormValues>(
+  field: keyof T,
+  dirtyFields: FieldNamesMarkedBoolean<T>,
+): boolean => (
+  (field in dirtyFields) && Boolean(dirtyFields[field as keyof FieldNamesMarkedBoolean<T>])
+);
 
 const useIsRequiredFieldsDirty = <T extends DefaultFormValues>(
   dirtyFields: FormState<T>['dirtyFields'],

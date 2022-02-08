@@ -1,27 +1,27 @@
 import React from 'react';
 import { Controller } from 'react-hook-form';
 import { TextField } from '@mui/material';
-import { INPUT_TYPES } from '@/shared/libs/form';
-import { APP_INPUT_DEFAULT_PROPS } from './constants';
-import { getEventWithReplacedValue } from './libs';
-import { AppInputProps, AppInputChangeEvent } from './types';
+import { FORM } from '@/shared/constants';
+import { DEFAULT_PROPS } from './config';
+import { replaceEventValue } from './libs';
+import { Props, ChangeEvent } from './types';
 
-export const AppInput: React.FC<AppInputProps> = ({
+export const AppInput: React.FC<Props> = ({
   control,
   name,
   label,
-  type = APP_INPUT_DEFAULT_PROPS.type,
-  fullWidth = APP_INPUT_DEFAULT_PROPS.fullWidth,
-  variant = APP_INPUT_DEFAULT_PROPS.variant,
-  required = APP_INPUT_DEFAULT_PROPS.required,
-  disabled = APP_INPUT_DEFAULT_PROPS.disabled,
+  type = DEFAULT_PROPS.type,
+  fullWidth = DEFAULT_PROPS.fullWidth,
+  variant = DEFAULT_PROPS.variant,
+  required = DEFAULT_PROPS.required,
+  disabled = DEFAULT_PROPS.disabled,
   errorText = undefined,
 }) => {
-  const isNumber = type === INPUT_TYPES.NUMBER;
+  const isNumber = type === FORM.INPUT_TYPES.NUMBER;
 
-  const getModifiedEventValue = (e: AppInputChangeEvent): AppInputChangeEvent => {
+  const getModifiedEventValue = (e: ChangeEvent): ChangeEvent => {
     if (isNumber) {
-      return getEventWithReplacedValue(e, Number(e.target.value));
+      return replaceEventValue(e, Number(e.target.value));
     }
     return e;
   };

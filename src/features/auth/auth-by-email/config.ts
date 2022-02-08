@@ -1,10 +1,10 @@
 import { rules } from '@/shared/libs/validation';
-import { FORM_FIELDS } from '@/shared/libs/form';
+import { FORM } from '@/shared/constants';
 import * as yup from 'yup';
 
 const DEFAULT_FORM_VALUES = {
-  [FORM_FIELDS.EMAIL]: '',
-  [FORM_FIELDS.PASSWORD]: '',
+  [FORM.FIELDS.EMAIL]: '',
+  [FORM.FIELDS.PASSWORD]: '',
 };
 
 const FORM_SCHEMA = yup.object({

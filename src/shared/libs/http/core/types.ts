@@ -18,6 +18,6 @@ export type FailResponse<T = ErrorDefault> = {
 
 export type Response<D, T = ErrorDefault> = Either<FailResponse<T>, DoneResponse<D>>;
 
-export type RawDoneResponse<T> = AxiosResponse<T>;
+export type RawDoneResponse<T> = Pick<AxiosResponse<T>, 'status' | 'data'>;
 
-export type RawFailResponse = AxiosError<{ readonly errors: GeneralError[] }>;
+export type RawFailResponse = Pick<AxiosError<{ readonly errors: GeneralError[] }>, 'response'>;

@@ -1,4 +1,4 @@
-export enum ROUTES_PATHS {
+export enum PATHS {
   SIGN_IN = '/sign-in',
   FORGOT_PASSWORD = '/forgot-password',
   CREATE_NEW_PASSWORD = '/create-new-password',

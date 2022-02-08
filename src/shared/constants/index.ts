@@ -1,7 +1,9 @@
+import * as USERS from './users';
+import * as SORT from './sort';
+import * as FILE from './file';
+import * as FORM from './form';
+import * as ERRORS from './errors';
+
 export {
-  GENERAL_ERRORS_KEYS, GENERAL_ERRORS_VALUES, SERVER_ERRORS_VALUES, REQUIRED_FIELD_ERROR,
-} from './error-messages';
-export { USER_ROLES } from './users';
-export { SORT_DURATION } from './sort';
-export { FILE_EXTS } from './file';
-export { BYTES_SIZES } from './sizes';
+  USERS, SORT, FILE, FORM, ERRORS,
+};

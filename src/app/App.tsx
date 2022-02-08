@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes } from './Routes';
-import { useInitializeGlobalState } from './hooks/initialize-global-state';
+import { useInitAppState } from './hooks/init-app-state';
 import './global-styles.css';
 
 export const App: React.FC = () => {
-  useInitializeGlobalState();
+  useInitAppState();
   return (<Routes />);
 };

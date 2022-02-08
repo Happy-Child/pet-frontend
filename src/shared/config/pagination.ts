@@ -1,5 +1,5 @@
-import { SORT_DURATION } from '../constants';
+import { SORT } from '@/shared/constants';
 
-export const DEFAULT_SORT_DURATION = SORT_DURATION.DESC;
+export const DEFAULT_SORT_DURATION = SORT.DURATION.DESC;
 
-export const DEFAULT_PAGINATION_PER_PAGE = 9;
+export const DEFAULT_PER_PAGE = 9;

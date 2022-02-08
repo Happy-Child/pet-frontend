@@ -1,4 +1,4 @@
-export enum SORT_DURATION {
+export enum DURATION {
   DESC = 'DESC',
   ASC = 'ASC',
 }

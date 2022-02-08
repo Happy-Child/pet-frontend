@@ -1,4 +1,4 @@
-export enum FILE_EXTS {
+export enum EXTS {
   JPG = '.jpg',
   PNG = '.png',
 }

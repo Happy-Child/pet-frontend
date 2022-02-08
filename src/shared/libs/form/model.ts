@@ -1,28 +1,28 @@
 import React from 'react';
 import {
-  useForm, UseFormReturn, UseFormProps,
+  useForm as useRootForm, UseFormReturn, UseFormProps,
   UseFormHandleSubmit, SubmitErrorHandler,
   SubmitHandler,
 } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ObjectSchema } from '@/shared/libs/validation';
-import { GET_DEFAULT_FORM_SETTINGS } from '../config';
-import { DefaultFormValues } from '../types';
-import { useResetFailFieldsOnChange } from './hooks/reset-fail-fields-on-change';
-import { useCanBeSubmitForm } from './hooks/can-be-submit-form';
-import { useErrorsAdapter } from './hooks/errors-adapter';
+import { GET_DEFAULT_FORM_SETTINGS } from './config';
+import { DefaultFormValues } from './types';
+import { useResetFailFieldsOnChange } from './libs/reset-fail-fields-on-change';
+import { useCanBeSubmitForm } from './libs/can-be-submit-form';
+import { useErrorsAdapter } from './libs/errors-adapter';
 
 const handleSubmitPlaceholder = (e: React.BaseSyntheticEvent): void => {
   e.preventDefault();
 };
 
 type BaseParams<T> = Pick<UseFormProps<T>, 'defaultValues'>;
-type Params<T extends DefaultFormValues> = BaseParams<T> & {
+export type Params<T extends DefaultFormValues> = BaseParams<T> & {
   validationSchema?: ObjectSchema,
 };
 
 type BaseReturn<T> = Pick<UseFormReturn<T>, | 'control'>;
-type Return<T extends DefaultFormValues> = BaseReturn<T> & {
+export type Return<T extends DefaultFormValues> = BaseReturn<T> & {
   canBeSubmit: boolean;
   errors: Record<keyof T, string | undefined>;
   handleSubmit: (
@@ -31,11 +31,11 @@ type Return<T extends DefaultFormValues> = BaseReturn<T> & {
   ) => ReturnType<UseFormHandleSubmit<T>> | typeof handleSubmitPlaceholder;
 };
 
-export const useAppForm = <T extends DefaultFormValues>(params: Params<T>): Return<T> => {
+export const useForm = <T extends DefaultFormValues>(params: Params<T>): Return<T> => {
   const resolver = params.validationSchema ? yupResolver(params.validationSchema) : undefined;
   const {
     formState, handleSubmit, control, watch, clearErrors,
-  } = useForm<T>({ ...GET_DEFAULT_FORM_SETTINGS<T>(), ...params, resolver });
+  } = useRootForm<T>({ ...GET_DEFAULT_FORM_SETTINGS<T>(), ...params, resolver });
 
   useResetFailFieldsOnChange({
     errors: formState.errors,

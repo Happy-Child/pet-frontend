@@ -1,2 +1,2 @@
 export { Provider } from './provider';
-export { useItem } from './hook';
+export { useItem } from './model';

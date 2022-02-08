@@ -1,4 +1,4 @@
-export enum USER_ROLES {
+export enum ROLES {
   MASTER = '1',
   STATION_WORKER = '2',
   DISTRICT_LEADER = '3',

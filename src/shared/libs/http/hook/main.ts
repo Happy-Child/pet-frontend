@@ -9,15 +9,15 @@ import { ReactiveState } from './types';
 export type HandleRootRequest<D, P = undefined, F = ErrorDefault> = (data?: P) => Promise<Response<D, F>>;
 
 export interface Params<D, P = undefined, F = ErrorDefault> {
-  readonly request: HandleRootRequest<D, P, F>,
   readonly onDone?: (done: DoneResponse<D>) => void,
   readonly onFail?: (fail: FailResponse<F>) => void,
   readonly onPending?: (params: P | undefined) => void,
   readonly onFinally?: (res: Response<D, F>) => void,
 }
 
-export type FullParams<D, P = undefined, F = ErrorDefault> = Params<D, P, F> & {
+type FullParams<D, P = undefined, F = ErrorDefault> = Params<D, P, F> & {
   readonly state: ReactiveState<D, F>,
+  readonly request: HandleRootRequest<D, P, F>,
 }
 
 export type Return<D, P = undefined, F = ErrorDefault> = HandleRootRequest<D, P, F>;

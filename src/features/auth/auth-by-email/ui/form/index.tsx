@@ -3,20 +3,17 @@ import {
   Box, Button, Grid, Paper, Typography,
   FormControlLabel, Checkbox,
 } from '@mui/material';
+import { Internal } from '@/shared/libs/api';
+import { FORM } from '@/shared/constants';
 import { AppInput, AppForm } from '@/shared/ui';
-import {
-  FORM_FIELDS, FORM_LABELS, INPUT_TYPES, useAppForm,
-} from '@/shared/libs/form';
-import { meModel } from '@/entities/user';
-import { Internal as InternalApi } from '@/shared/libs/api';
-import { FORM_PARAMS } from './config';
+import { useForm } from '@/shared/libs/form';
+import { FORM_PARAMS } from '../../config';
 import styles from './styles';
 
-type SignInForm = InternalApi.signIn.Params;
+// !!! 1. хук/либа transform request errors to form error interface
+// !!! 2. делать хук формы фитчи. там главная форма. там слушаем ошибки респонса + 1 = final errors
 
-const fakeReq = (): Promise<void> => new Promise((res) => {
-  setTimeout(() => res(), 4000);
-});
+type FormFields = Internal.signIn.Params;
 
 interface Props {
   readonly title?: string;
@@ -27,12 +24,10 @@ export const Form: React.FC<Props> = React.memo(({ title = 'Авторизаци
     handleSubmit,
     errors,
     canBeSubmit,
-  } = useAppForm<SignInForm>(FORM_PARAMS);
+  } = useForm<FormFields>(FORM_PARAMS);
 
-  const handleReq = meModel.useRequest();
-
-  const onSubmit = async (): Promise<void> => {
-    await handleReq();
+  const onSubmit = (): void => {
+    console.log('sad');
   };
 
   return (
@@ -45,19 +40,19 @@ export const Form: React.FC<Props> = React.memo(({ title = 'Авторизаци
           <Grid container direction="column" rowSpacing={2}>
             <Grid item>
               <AppInput
-                errorText={errors[FORM_FIELDS.EMAIL]}
+                errorText={errors[FORM.FIELDS.EMAIL]}
                 control={control}
-                name={FORM_FIELDS.EMAIL}
-                label={FORM_LABELS.EMAIL}
+                name={FORM.FIELDS.EMAIL}
+                label={FORM.LABELS.EMAIL}
               />
             </Grid>
             <Grid item>
               <AppInput
-                errorText={errors[FORM_FIELDS.PASSWORD]}
+                errorText={errors[FORM.FIELDS.PASSWORD]}
                 control={control}
-                name={FORM_FIELDS.PASSWORD}
-                label={FORM_LABELS.PASSWORD}
-                type={INPUT_TYPES.PASSWORD}
+                name={FORM.FIELDS.PASSWORD}
+                label={FORM.LABELS.PASSWORD}
+                type={FORM.INPUT_TYPES.PASSWORD}
               />
             </Grid>
             <Grid item>

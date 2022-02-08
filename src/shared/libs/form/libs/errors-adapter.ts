@@ -1,6 +1,6 @@
 import { FieldErrors, FieldError } from 'react-hook-form';
 import { capitalize } from 'lodash';
-import { DefaultFormValues } from '../../types';
+import { DefaultFormValues } from '../types';
 
 export const useErrorsAdapter = <T extends DefaultFormValues>(
   errors: FieldErrors<T>,

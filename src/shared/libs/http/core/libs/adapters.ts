@@ -1,15 +1,14 @@
-import { AxiosResponse } from 'axios';
 import { left, right } from '@sweet-monads/either';
-import { RawFailResponse, Response } from '../types';
+import { RawDoneResponse, RawFailResponse, Response } from '../types';
 import { DEFAULT_FAIL_STATUS_CODE, DEFAULT_FAIL_ERRORS } from '../config';
 
-export const prepareDoneResponse = <D>(data: AxiosResponse<D>): Response<D> => (
-  right({ statusCode: data.status, data: data.data })
+export const prepareDoneResponse = <D>({ status, data }: RawDoneResponse<D>): Response<D> => (
+  right({ statusCode: status, data })
 );
 
-export const prepareFailResponse = <D>(data: RawFailResponse): Response<D> => (
+export const prepareFailResponse = <D>({ response }: RawFailResponse): Response<D> => (
   left({
-    statusCode: data.response?.status || DEFAULT_FAIL_STATUS_CODE,
-    errors: data.response?.data?.errors || DEFAULT_FAIL_ERRORS,
+    statusCode: response?.status || DEFAULT_FAIL_STATUS_CODE,
+    errors: response?.data?.errors || DEFAULT_FAIL_ERRORS,
   })
 );

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { UseFormWatch, WatchObserver } from 'react-hook-form';
-import { DefaultFormValues } from '../../types';
+import { DefaultFormValues } from '../types';
 
 export const useWatchFormByFlag = <T extends DefaultFormValues>(
   formWatch: UseFormWatch<T>,

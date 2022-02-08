@@ -1,6 +1,6 @@
-import { AppInputChangeEvent } from './types';
+import { ChangeEvent } from './types';
 
-export const getEventWithReplacedValue = (e: AppInputChangeEvent, value: unknown): AppInputChangeEvent => ({
+export const replaceEventValue = (e: ChangeEvent, value: unknown): ChangeEvent => ({
   ...e,
   target: { ...e.target, value },
-} as AppInputChangeEvent);
+} as ChangeEvent);
