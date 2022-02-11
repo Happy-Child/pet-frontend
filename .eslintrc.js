@@ -1,28 +1,28 @@
 module.exports = {
-	'env': {
-		'browser': true,
-		'jest': true,
-		'es2020': true
+	"env": {
+		"browser": true,
+		"jest": true,
+		"es2020": true
 	},
-	'extends': [
+	"extends": [
 		"airbnb",
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:@typescript-eslint/recommended-requiring-type-checking",
-		"plugin:react-hooks/recommended"
+		"plugin:react-hooks/recommended",
 	],
-	'parser': '@typescript-eslint/parser',
-	'parserOptions': {
-		'ecmaFeatures': {
-			'jsx': true,
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true,
 			"modules": true,
 			"experimentalObjectRestSpread": true
 		},
-		'ecmaVersion': 12,
-		'sourceType': 'module',
+		"ecmaVersion": 12,
+		"sourceType": "module",
 		"project": "tsconfig.json"
 	},
-	'plugins': [
+	"plugins": [
 		"react",
 		"jsx-a11y",
 		"import",
@@ -45,6 +45,7 @@ module.exports = {
     "indent": "off",
     "@typescript-eslint/indent": ["error", 2],
 		"react/prop-types": "off",
+		"react/require-default-props": "off",
 		"no-use-before-define": "off",
 		"@typescript-eslint/no-use-before-define": ["error"],
 		"import/extensions": "off",
@@ -57,7 +58,9 @@ module.exports = {
 		"react/jsx-filename-extension": "off",
 		"max-len": ["error", { "code": 120 }],
 		"@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/explicit-function-return-type": "error",
-    "import/prefer-default-export": "off"
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-namespace": "off",
+    "no-void": "off"
   }
 };
